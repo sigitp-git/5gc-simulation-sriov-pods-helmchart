@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "5gcnet-test-helmchart.fullname" . }}
+  labels:
+    {{- include "5gcnet-test-helmchart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "5gcnet-test-helmchart.selectorLabels" . | nindent 4 }}

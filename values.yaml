@@ -1,0 +1,12 @@
+appName: app-5gcnet-test
+
+nameSpace: default
+
+configMap:
+    name: app-5gcnet-cm-v1.0
+    data:
+        CUSTOM_HEADER: "5GC Net Test App Helm Chart"
+        
+image:
+    name: devopsjourney1/mywebapp
+    tag: latest
